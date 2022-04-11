@@ -1,13 +1,18 @@
-
 const express = require('express')
-const app = express()
+const perfilRoute = require('./routes/PerfilRoute')
+const api = express()
+api.use(express.json())
+api.use('/perfil' , perfilRoute)
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+
+// Rota Raiz
+api.get('/', (req, res) => {
+  res.send('Bem-Vindo Ao Perfil Profissional API!')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+api.listen(port, () => {
+  console.log(`Perfil Profissionao API Rodando na porta: ${port} ...`)
 })
+
 
